@@ -20,12 +20,17 @@ Mantine(v6.0.9)
 
 
 ## Run App
-docker-compose up
+
+Go To the backend folder (DamuRGTest)
+
+And run (docker-compose up)
 
 Open browser URL http://localhost:5173
 
-Mongo saves log with error to backend
+Mongo saves log with error from backend
 ## TODO
+
+Add Gracefull Shutdown
 
 Add Social media auth
 
