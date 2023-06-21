@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "f1589b8e-61dd-4210-bac9-cb499eb1235b",
+		"name": "DAMU RG TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3057550"
+	},
+	"item": [
+		{
+			"name": "AUth",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Surname\":\"Baizhaksynov\",\r\n    \"Name\":\"Daniyar\",\r\n    \"Email\":\"donzzzdaniyar@gmail.com\",\r\n    \"Password\":\"password\",\r\n    \"Phone\":\"+77471490823\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/api/v1/sign-up",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"sign-up"
+							],
+							"query": [
+								{
+									"key": "Surname",
+									"value": "Baizhaksynov",
+									"disabled": true
+								},
+								{
+									"key": "Name",
+									"value": "Daniyar",
+									"disabled": true
+								},
+								{
+									"key": "Email",
+									"value": "donzzzdaniyar@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "Password",
+									"value": "password",
+									"disabled": true
+								},
+								{
+									"key": "Phone",
+									"value": "+77471490823",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//var jsonData = JSON.parse(responseBody);  \r",
+									"//pm.collectionVariables.set(\"access_token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\": \"donzzzdaniyar@gmail.com\",\r\n    \"Password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9000/api/v1/sign-in",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"sign-in"
+							],
+							"query": [
+								{
+									"key": "Surname",
+									"value": "Baizhaksynov",
+									"disabled": true
+								},
+								{
+									"key": "Name",
+									"value": "Daniyar",
+									"disabled": true
+								},
+								{
+									"key": "Email",
+									"value": "donzzzdaniyar@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "Password",
+									"value": "password",
+									"disabled": true
+								},
+								{
+									"key": "Phone",
+									"value": "+77471490823",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/api/v1/user/me",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODc1ODkwMTYsImlkIjoxLCJuYW1lIjoiRGFuaXlhciIsInN1cm5hbWUiOiJCYWl6aGFrc3lub3YifQ.2-1DRdwvznSdIkYApK4DKXIPK4i06mrq04EAXxrdx2c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/api/v1/user/all",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODc1ODkwMTYsImlkIjoxLCJuYW1lIjoiRGFuaXlhciIsInN1cm5hbWUiOiJCYWl6aGFrc3lub3YifQ.2-1DRdwvznSdIkYApK4DKXIPK4i06mrq04EAXxrdx2c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/api/v1/user/delete/14",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"delete",
+								"14"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logs",
+			"item": [
+				{
+					"name": "Get Logs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODc1ODkwMTYsImlkIjoxLCJuYW1lIjoiRGFuaXlhciIsInN1cm5hbWUiOiJCYWl6aGFrc3lub3YifQ.2-1DRdwvznSdIkYApK4DKXIPK4i06mrq04EAXxrdx2c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/api/v1/logs",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"logs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

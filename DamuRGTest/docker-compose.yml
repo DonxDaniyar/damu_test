@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  db:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - ./.database/postgres/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=qwerty
+    ports:
+      - 5432:5432
+    networks:
+      - web_api
+  damumongo:
+    image: mongo:6-jammy
+    hostname: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./.mongo/data:/data/db
+    networks:
+      - web_api
+  frontend:
+    build: ../frontend
+    hostname: frontend
+    ports:
+      - 5173:5173
+    networks:
+      - web_api
+  damurgtest:
+    build: ./
+    command: ./wait-for-postgres.sh db ./damurgtest
+    ports:
+      - 9000:9000
+    depends_on:
+      - db
+      - damumongo
+    environment:
+      - DB_PASSWORD=qwerty
+      - WAIT_HOSTS=mongo:27017
+    networks:
+      - web_api
+networks:
+  web_api:
+    driver: bridge
